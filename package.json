@@ -1,6 +1,6 @@
 {
   "name": "vue-heap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vue.js plugin to add Heap to your application",
   "main": "src/index.js",
   "scripts": {
