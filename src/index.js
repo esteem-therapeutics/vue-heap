@@ -25,10 +25,11 @@ const VueHeap = {
     for (let i = 0; i < HEAP_INSTANCE_METHODS.length; i++) {
       window.heap[HEAP_INSTANCE_METHODS[i]] = function() {
         if (window.heap && window.heap.push) {
-          window.heap.push([
-            HEAP_INSTANCE_METHODS[i],
-            Array.prototype.slice.call(arguments, 0)
-          ]);
+          window.heap.push(
+            [HEAP_INSTANCE_METHODS[i]].concat(
+              Array.prototype.slice.call(arguments, 0)
+            )
+          );
         }
       };
     }
