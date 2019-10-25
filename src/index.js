@@ -61,7 +61,17 @@ const VueHeap = {
     }
 
     // add $heap reference so components can use this.$heap
-    Vue.prototype.$heap = window.heap;
+    setTimeout(() => {
+      Vue.prototype.$heap = (method, payload) => {
+        if (window.heap[method]) {
+          return window.heap[method](payload);
+        }
+
+        if (window.heap.push) {
+          return window.heap.push([method, payload]);
+        }
+      };
+    }, 0);
   }
 };
 
